@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Volt Market — Website & Feature Guide</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 17mm 17mm 19mm;
+      @bottom-left {
+        content: "VOLT MARKET  ·  WEBSITE & FEATURE GUIDE";
+        color: #788396;
+        font: 8pt Arial, sans-serif;
+      }
+      @bottom-right {
+        content: counter(page) " / " counter(pages);
+        color: #788396;
+        font: 8pt Arial, sans-serif;
+      }
+    }
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: #18202c;
+      background: #fff;
+      font: 10pt/1.48 Arial, "Segoe UI", sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 12px; font-size: 31pt; line-height: 1.05; letter-spacing: -1.2px; }
+    h2 { margin-bottom: 7px; font-size: 19pt; line-height: 1.12; letter-spacing: -.45px; }
+    h3 { margin-bottom: 5px; font-size: 11pt; }
+    p { margin-bottom: 9px; }
+    .page { min-height: 258mm; break-after: page; position: relative; }
+    .page:last-child { break-after: auto; }
+    .eyebrow { margin-bottom: 10px; color: #2868d8; font-size: 8pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+    .muted { color: #627086; }
+    .small { font-size: 8.5pt; }
+    .rule { height: 1px; margin: 15px 0; background: #dce3ec; }
+    .cover {
+      min-height: 258mm;
+      padding: 26mm 17mm 18mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      border-radius: 7mm;
+      color: #f5f8ff;
+      background: #101620;
+      position: relative;
+    }
+    .cover::after {
+      content: "";
+      position: absolute;
+      width: 140mm;
+      height: 140mm;
+      right: -70mm;
+      top: 31mm;
+      border: 1px solid rgba(101, 157, 255, .28);
+      border-radius: 50%;
+      box-shadow: 0 0 0 18mm rgba(77, 139, 255, .045), 0 0 0 39mm rgba(77, 139, 255, .035);
+    }
+    .cover-brand { color: #a9c9ff; font-size: 10pt; font-weight: 700; letter-spacing: 2px; }
+    .cover-content { position: relative; z-index: 1; max-width: 145mm; }
+    .cover .eyebrow { color: #85b1ff; }
+    .cover h1 { max-width: 140mm; color: #fff; font-size: 39pt; }
+    .cover-subtitle { max-width: 120mm; color: #c0cada; font-size: 14pt; line-height: 1.45; }
+    .cover-tagline { margin-top: 19px; color: #8e9cb2; font-size: 10pt; }
+    .author {
+      position: relative;
+      z-index: 1;
+      padding-top: 12px;
+      border-top: 1px solid #354152;
+    }
+    .author-label { display: block; margin-bottom: 4px; color: #8c9bb1; font-size: 8pt; letter-spacing: 1.4px; text-transform: uppercase; }
+    .author strong { font-size: 14pt; letter-spacing: .7px; }
+    .lead { max-width: 160mm; color: #536177; font-size: 12pt; line-height: 1.55; }
+    .stat-grid, .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; margin: 13px 0; }
+    .stat, .card, .note {
+      padding: 12px;
+      border: 1px solid #dfe5ed;
+      border-radius: 9px;
+      background: #f8fafd;
+      break-inside: avoid;
+    }
+    .stat strong { display: block; margin-bottom: 2px; color: #1f5fc8; font-size: 18pt; }
+    .stat span, .card p { color: #657287; font-size: 9pt; }
+    .card p { margin-bottom: 0; line-height: 1.45; }
+    .card h3 { color: #273449; }
+    .three-col { grid-template-columns: repeat(3, 1fr); }
+    .section { margin: 13px 0; }
+    .section > p { color: #536177; }
+    .list { margin: 7px 0 0; padding-left: 18px; }
+    .list li { margin: 0 0 5px; padding-left: 2px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 12px; }
+    .chip { padding: 5px 8px; border: 1px solid #d9e3f3; border-radius: 20px; background: #f2f6fd; color: #285db1; font-size: 8.5pt; }
+    .flow { display: flex; align-items: stretch; gap: 7px; margin: 15px 0; }
+    .flow span { flex: 1; padding: 10px 8px; border: 1px solid #dfe5ed; border-radius: 8px; background: #f8fafd; text-align: center; font-size: 8.5pt; }
+    .flow b { align-self: center; color: #4783e8; font-size: 12pt; }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+    th { background: #eef3fa; color: #35445b; font-size: 8pt; text-align: left; text-transform: uppercase; letter-spacing: .5px; }
+    th, td { padding: 8px 9px; border-bottom: 1px solid #e0e6ed; vertical-align: top; }
+    .language-sample { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0; }
+    .language-sample div { min-height: 68px; padding: 10px; border: 1px solid #dfe5ed; border-radius: 8px; background: #f8fafd; }
+    .language-sample b { display: block; margin-bottom: 5px; color: #657287; font-size: 8pt; }
+    .arabic { direction: rtl; text-align: right; font-family: "Segoe UI", Tahoma, Arial, sans-serif; }
+    .note { margin: 10px 0; border-color: #cadcf8; background: #f1f6ff; color: #364f76; }
+    .note strong { color: #245bb0; }
+    .code {
+      display: block;
+      margin: 9px 0 10px;
+      padding: 9px 11px;
+      border-radius: 7px;
+      background: #101620;
+      color: #e9f1ff;
+      font: 8.5pt/1.5 Consolas, "Courier New", monospace;
+      white-space: pre-wrap;
+    }
+    .closing {
+      padding: 16px;
+      border-radius: 9px;
+      background: #101620;
+      color: #eef4ff;
+    }
+    .closing strong { color: #91b8ff; }
+    @media screen {
+      body { max-width: 210mm; margin: 16px auto; padding: 0 10mm; background: #edf1f6; }
+      .page { margin-bottom: 18px; padding: 14mm; background: #fff; box-shadow: 0 8px 24px rgba(20,35,55,.12); }
+      .cover { padding: 26mm 17mm 18mm; }
+    }
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <div class="cover-brand">VOLT MARKET</div>
+    <div class="cover-content">
+      <div class="eyebrow">Website &amp; Feature Guide</div>
+      <h1>Build what moves you.</h1>
+      <p class="cover-subtitle">An overview of the electronics storefront, shopping tools, team administration, and language experience.</p>
+      <p class="cover-tagline">Better parts. Better picture. Your next build starts here.</p>
+    </div>
+    <div class="author"><span class="author-label">Prepared by</span><strong>YAHYA CHOURI</strong></div>
+  </section>
+
+  <section class="page">
+    <div class="eyebrow">01 · The experience</div>
+    <h2>A storefront for technology and better builds.</h2>
+    <p class="lead">Volt Market is a responsive electronics-store demonstration for Moroccan shoppers exploring PC components, televisions, monitors, and accessories. Its interface is designed around clear product information, practical comparison, and an approachable PC-building flow.</p>
+    <div class="stat-grid">
+      <div class="stat"><strong>26</strong><span>sample products ready to browse</span></div>
+      <div class="stat"><strong>11</strong><span>product families across components and screens</span></div>
+      <div class="stat"><strong>3</strong><span>interface languages: English, French, Arabic</span></div>
+      <div class="stat"><strong>MAD</strong><span>prices shown in Moroccan dirhams</span></div>
+    </div>
+    <div class="section">
+      <h3>Look and feel</h3>
+      <p>A dark, premium technology aesthetic is the default, with a light-theme switch and a focused electric-blue accent. Product photography, clean type, generous spacing, responsive layouts, visible focus states, and subtle interaction feedback help the store feel clear on both desktop and mobile.</p>
+    </div>
+    <div class="section">
+      <h3>Product categories</h3>
+      <div class="chips">
+        <span class="chip">CPUs</span><span class="chip">GPUs</span><span class="chip">Motherboards</span>
+        <span class="chip">RAM</span><span class="chip">Storage</span><span class="chip">Power supplies</span>
+        <span class="chip">Cases</span><span class="chip">Cooling</span><span class="chip">Monitors</span>
+        <span class="chip">TVs</span><span class="chip">Accessories</span>
+      </div>
+    </div>
+    <div class="note"><strong>Sample catalog:</strong> product names, photos, prices, availability, ratings, and reviews are illustrative demo content. Prices are displayed in MAD.</div>
+  </section>
+
+  <section class="page">
+    <div class="eyebrow">02 · Discover and decide</div>
+    <h2>Find the right part, then check the details.</h2>
+    <div class="card-grid">
+      <div class="card"><h3>Home</h3><p>Promotional hero, category tiles, featured products, sample deals with a countdown, arrivals, brand names, illustrative reviews, and newsletter form.</p></div>
+      <div class="card"><h3>Category browsing</h3><p>Product grids with brand, price, rating, and availability filters, sorting options, and load-more pagination.</p></div>
+      <div class="card"><h3>Specialist filters</h3><p>CPU socket, GPU memory, and screen size or resolution filters help narrow relevant component and display lists.</p></div>
+      <div class="card"><h3>Search</h3><p>Suggestions update as you type. Keyboard arrows move through suggestions, Enter opens a match, and Ctrl/Cmd+K focuses search.</p></div>
+      <div class="card"><h3>Product details</h3><p>Image gallery, pricing and discount display, availability, specifications, sample ratings/reviews, related products, and add-to-cart controls.</p></div>
+      <div class="card"><h3>Compare and save</h3><p>Compare up to three selected products and keep a personal wishlist. Cart, wishlist, theme, and compare state persist in the browser.</p></div>
+    </div>
+    <div class="section">
+      <h3>Product information that is easy to scan</h3>
+      <p>Product details and cards show prices, ratings, stock quantity, and key specifications. The listing and product screens share a consistent visual vocabulary, and navigation adapts to narrow screens with a mobile bottom bar.</p>
+    </div>
+    <div class="section">
+      <h3>Other pages</h3>
+      <p>PC Builder, cart, checkout, order confirmation, order tracking, account demo, contact, about, FAQ, warranty and returns, wishlist, and product comparison are included.</p>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="eyebrow">03 · Build and buy</div>
+    <h2>Tools that carry a shopper from idea to order.</h2>
+    <div class="section">
+      <h3>PC Builder</h3>
+      <p>Choose components and see a running total. The compatibility check compares the CPU socket with the motherboard socket and flags a match or mismatch.</p>
+      <div class="flow"><span>Choose CPU</span><b>→</b><span>Choose motherboard</span><b>→</b><span>Check socket match</span><b>→</b><span>Review build total</span></div>
+      <p class="small muted">Compatibility is intentionally limited to CPU-to-motherboard socket matching. It does not check every fit, power, or clearance requirement.</p>
+    </div>
+    <div class="section">
+      <h3>Stock checks</h3>
+      <ul class="list">
+        <li>Product and cart pages show the available catalog quantity.</li>
+        <li>Add-to-cart and quantity controls stop a cart line from exceeding the shown stock.</li>
+        <li>Checkout fetches the latest catalog again before creating the demo order and blocks quantities that are no longer available.</li>
+      </ul>
+      <p class="small muted">Availability is sample data. Checkout does not reserve inventory or contact a retailer.</p>
+    </div>
+    <div class="section">
+      <h3>Cart and checkout</h3>
+      <p>Edit quantities, remove products, apply the demonstration VOLT10 promo code, and review a delivery and payment-method selection. A valid demo checkout saves an illustrative order in this browser and displays a confirmation and tracking code.</p>
+    </div>
+    <div class="note"><strong>Payment boundary:</strong> no card details are collected, no payment is processed, and no real order is transmitted. Cash-on-delivery and card choices are demonstration selections only.</div>
+  </section>
+
+  <section class="page">
+    <div class="eyebrow">04 · Languages and accessibility</div>
+    <h2>One store, three interface languages.</h2>
+    <p class="lead">The interface includes English, French, and Arabic translations. Choosing Arabic switches the page direction to right-to-left, including navigation and localized layouts. Prices use Moroccan dirhams (MAD).</p>
+    <div class="language-sample">
+      <div><b>ENGLISH · LTR</b>Build a PC that fits.</div>
+      <div><b>FRANÇAIS · LTR</b>Une configuration adaptée.</div>
+      <div class="arabic" lang="ar" dir="rtl"><b>العربية · من اليمين إلى اليسار</b>أنشئ حاسوباً يناسبك.</div>
+    </div>
+    <div class="section">
+      <h3>Practical accessibility details</h3>
+      <ul class="list">
+        <li>Controls have labels, keyboard focus styling, and accessible names.</li>
+        <li>Product images include descriptive alternative text where they convey product information.</li>
+        <li>Availability and errors are communicated with words as well as color.</li>
+        <li>Responsive layouts support mobile and desktop browsing.</li>
+        <li>Search suggestions can be navigated from the keyboard.</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h3>Customer-service touchpoints</h3>
+      <p>The footer includes click-to-call and WhatsApp links, plus routes for contact, FAQs, warranty/returns, and order tracking. Replace the example contact details and demo policy copy with verified business information before launch.</p>
+    </div>
+    <div class="note"><strong>Translation note:</strong> the language selector changes the storefront interface and RTL presentation. Product titles and descriptions remain catalog content and should be translated separately if a fully localized catalog is needed.</div>
+  </section>
+
+  <section class="page">
+    <div class="eyebrow">05 · Owner and staff administration</div>
+    <h2>Manage products and team access.</h2>
+    <p>The private admin panel at <strong>/admin</strong> is built around an owner account configured through private environment settings. The owner can manage the catalog and create or remove staff logins.</p>
+    <table>
+      <thead><tr><th>Role</th><th>What they can do</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Owner</strong></td><td>Manage products, create and remove staff accounts, and see team online/last-seen status.</td></tr>
+        <tr><td><strong>Staff</strong></td><td>Sign in with an individual account and manage product catalog records. They cannot administer team accounts.</td></tr>
+      </tbody>
+    </table>
+    <div class="section">
+      <h3>Team status and account safety</h3>
+      <ul class="list">
+        <li>“Online” means the signed-in admin page checked in during the last 75 seconds. Otherwise the owner sees the last activity time.</li>
+        <li>Staff passwords are stored as one-way scrypt hashes; they cannot be revealed again from the panel.</li>
+        <li>Removing a staff login revokes its sessions immediately.</li>
+        <li>Admin sessions use signed, HTTP-only cookies with an expiry. Login attempts are throttled.</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h3>Product controls</h3>
+      <p>Search the catalog and add, edit, or remove products, including brand, category, price, stock, image, specifications, and filtering attributes. Changes save to SQLite and appear in the storefront catalog.</p>
+    </div>
+    <div class="note"><strong>Security reminder:</strong> never put owner or staff passwords in this guide or share them publicly. Configure private credentials on the server and share staff access privately.</div>
+  </section>
+
+  <section class="page">
+    <div class="eyebrow">06 · Technology and setup</div>
+    <h2>How the demo is put together.</h2>
+    <table>
+      <tbody>
+        <tr><th>Web framework</th><td>Next.js App Router, React, and TypeScript</td></tr>
+        <tr><th>Styling</th><td>Tailwind CSS dependency with a project design system and responsive styles</td></tr>
+        <tr><th>Catalog</th><td>26 JSON sample products seed a local SQLite database on first request</td></tr>
+        <tr><th>Admin</th><td>Owner credentials from environment settings; SQLite staff accounts and sessions</td></tr>
+        <tr><th>Browser persistence</th><td>Cart, wishlist, compare, theme, locale, and demo orders</td></tr>
+        <tr><th>Prices</th><td>Moroccan dirhams (MAD)</td></tr>
+      </tbody>
+    </table>
+    <div class="section">
+      <h3>Run locally</h3>
+      <ol class="list">
+        <li>Install Node.js 20.9 or later.</li>
+        <li>In the project folder, install dependencies with <strong>npm install</strong>.</li>
+        <li>Copy <strong>.env.example</strong> to <strong>.env.local</strong> and set an owner username, a unique password of at least 12 characters, and a random signing secret of at least 32 characters.</li>
+        <li>Start the site with <strong>npm run dev</strong>.</li>
+        <li>Visit <strong>http://localhost:3000</strong>; open <strong>http://localhost:3000/admin</strong> for administration.</li>
+      </ol>
+    </div>
+    <div class="section">
+      <h3>Generate a private session secret</h3>
+      <div class="code">node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"</div>
+      <p class="small muted">Use the command output as ADMIN_SESSION_SECRET in your private .env.local file. Do not publish that file.</p>
+    </div>
+    <div class="section">
+      <h3>Persistence and hosting</h3>
+      <p>Set VOLT_DATABASE_PATH to a writable persistent local volume for deployment, and back up the SQLite database to keep product edits and staff accounts. An ephemeral/serverless filesystem is not suitable for this SQLite setup.</p>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="eyebrow">07 · Scope and next steps</div>
+    <h2>A complete storefront demonstration, with honest boundaries.</h2>
+    <p class="lead">Volt Market provides a working frontend and local catalog/admin foundation. Connecting real commerce services is a separate production step.</p>
+    <div class="card-grid">
+      <div class="card"><h3>Included</h3><p>Browse and search products, filter and compare, save a wishlist, build a socket-checked PC, edit an owner-managed catalog, and issue staff logins with presence status.</p></div>
+      <div class="card"><h3>Demonstration only</h3><p>Prices, stock, ratings, reviews, countdown, and contact details are illustrative. Cart and demo orders are local to the browser.</p></div>
+    </div>
+    <div class="section">
+      <h3>Before a real store launch</h3>
+      <ul class="list">
+        <li>Replace sample catalog data with verified products, prices, stock, and properly licensed product imagery.</li>
+        <li>Connect a backend order workflow, inventory reservations, delivery handling, and customer notifications.</li>
+        <li>Choose a compliant payment provider before accepting card payments; this demo never processes money.</li>
+        <li>Publish verified contact, warranty, privacy, and returns information.</li>
+        <li>Deploy with secure private environment settings, persistent database storage, backups, and HTTPS.</li>
+      </ul>
+    </div>
+    <div class="rule"></div>
+    <div class="closing"><strong>Volt Market</strong><br>Better parts. Better picture. Your next build starts here.<br><br>Prepared by <strong>YAHYA CHOURI</strong></div>
+  </section>
+</body>
+</html>

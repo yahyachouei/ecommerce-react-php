@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+coverage/
+.env*
+!.env.example
+data/volt-market.sqlite
+data/volt-market.sqlite-shm
+data/volt-market.sqlite-wal
